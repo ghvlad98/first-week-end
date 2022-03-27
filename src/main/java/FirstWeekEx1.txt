@@ -1,0 +1,28 @@
+Pag.36 n.55 "Eserciziario Prima Settimana"
+
+1.
+L'output del programma e': un errore in cui dice che il riferimento al metodo f per
+l'istanza "beta" della classe B e' ambiguo (non comprende quale metodo invocare tra il 
+metodo f(B x, Object[] y) nella classe B e il metodo f(A x, A[] arr) nella
+classe A).
+Ignorando l'errore(commentando la riga problematica) si ottengono le seguenti tre righe
+di output:
+A2
+C2
+7
+
+-A2, perche' nella chiamata gamma.f(arr, alfa) viene cercato un metodo f(A[], A) tra i metodi
+che sono disponibili per la classe C e percio' quello usato e' f(Object x, Object y)
+(siccome Object e' superclasse di tutte le classi, cio' vale anche per gli array di queste
+classi).
+-C2, perche' nella chiamata gamma.f(beta, alfa) viene cercato un metodo f(B, A) tra i metodi 
+che sono disponibili per la classe C e percio' quello usato e' f(B x, Object y)
+(siccome Object e' superclasse di tutte le classi).
+-7, perche' con "|" (bitwise or) viene eseguito l'OR bit a bit tra 101 (5) e 111 (7), per cui
+si ha come risultato 111 (7).
+
+2.
+Lista di firme candidate per ogni metodo invocato:
+beta.f(gamma, arr): f(B x, Object[] y), f(A x, A[] arr)
+gamma.f(arr, alfa): f(Object x, Object y)
+gamma.f(beta, alfa): f(B x, Object y)
